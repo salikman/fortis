@@ -2,6 +2,16 @@
 	"use strict";
 	// aos
 	AOS.init();
+
+	// On Scroll
+	$(window).on('scroll', function() {
+		var wScroll = $(this).scrollTop();
+
+		// Fixed nav
+		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
+
+	});
+
 	// slider
 	$('#home-slider').slick({
 		infinite: true,
@@ -13,6 +23,16 @@
 		pauseOnHover: false,
 		pauseOnFocus: false,
 	});
+	// $('#works-slider').slick({
+	// 	infinite: true,
+	// 	slidesToShow: 4,
+	// 	slidesToScroll: 1,
+	// 	autoplay: true,
+	// 	autoplaySpeed: 3000,
+	// 	speed: 800,
+	// 	prevArrow: '<button type="button" class="slick-prev">Попередній</button>',
+	// 	nextArrow: '<button type="button" class="slick-next">Наступний</button>'
+	// })
 	$("#test_confirm").click(function() {
 		// Open customized confirmation dialog window
 		$.fancyConfirm({
