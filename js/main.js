@@ -3,11 +3,16 @@
 	// aos
 	AOS.init();
 
+	// Btn nav collapse
+	$('#nav .navbar__collapse').on('click', function() {
+		$('#nav').toggleClass('open');
+	});
 	// On Scroll
 	$(window).on('scroll', function() {
 		var wScroll = $(this).scrollTop();
 
 		// Fixed nav
+		// if ()
 		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
 
 	});
@@ -23,31 +28,50 @@
 		pauseOnHover: false,
 		pauseOnFocus: false,
 	});
-	// $('#works-slider').slick({
-	// 	infinite: true,
-	// 	slidesToShow: 4,
-	// 	slidesToScroll: 1,
-	// 	autoplay: true,
-	// 	autoplaySpeed: 3000,
-	// 	speed: 800,
-	// 	prevArrow: '<button type="button" class="slick-prev">Попередній</button>',
-	// 	nextArrow: '<button type="button" class="slick-next">Наступний</button>'
-	// })
-	$("#test_confirm").click(function() {
-		// Open customized confirmation dialog window
-		$.fancyConfirm({
-			title: "Use Google's location service?",
-			message:
-			"Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running",
-			okButton: "Agree",
-			noButton: "Disagree",
-			callback: function(value) {
-			if (value) {
-				$("#test_confirm_rez").html("Let's do this!");
-			} else {
-				$("#test_confirm_rez").html("Maybe later.");
+	$('#partners-slider').slick({
+		infinite: true,
+		slidesToShow: 6,
+		slidesToScroll: 1,
+		speed: 800,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1367,
+				settings: {
+					slidesToShow: 5,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 1025,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 769,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 481,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 381,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
 			}
-			}
-		});
+		]
 	});
 })(jQuery);
